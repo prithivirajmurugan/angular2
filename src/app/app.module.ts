@@ -8,12 +8,14 @@ import {MaterialModule} from './material.module';
 import { AppComponent } from './app.component';
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
+import { DishDetailComponent } from './dish-detail/dish-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    DishDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,8 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     HttpModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
