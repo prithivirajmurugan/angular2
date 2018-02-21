@@ -11,7 +11,8 @@ import { Route } from '@angular/router/src/config';
 export const routes:Routes=[
     {path:'home',component:HomeComponent},
     {path:'menu',component:MenuComponent},
+    {path:'dishdetail/:id',component:DishDetailComponent},
     {path:'contactus',component:ContactComponent},
     {path:'',redirectTo:'/home',pathMatch:'full'}
-
+     
 ]
