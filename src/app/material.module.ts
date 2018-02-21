@@ -13,7 +13,8 @@ MatFormFieldModule,
 MatInputModule,
 MatOptionModule,
 MatSelectModule,
-MatCheckboxModule } from '@angular/material';
+MatCheckboxModule,
+MatSlideToggleModule } from '@angular/material';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ imports:[MatButtonModule,
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
-    MatCheckboxModule],
+    MatCheckboxModule,
+    MatSlideToggleModule],
 exports:[MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
@@ -42,7 +44,8 @@ exports:[MatButtonModule,
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
-    MatCheckboxModule]
+    MatCheckboxModule,
+    MatSlideToggleModule]
 
 
 })
