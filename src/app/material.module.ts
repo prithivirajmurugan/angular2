@@ -7,7 +7,13 @@ MatToolbarModule,
 MatIconModule,
 MatCardModule,
 MatListModule,
-MatGridListModule,MatDialogModule,MatFormFieldModule } from '@angular/material';
+MatGridListModule,
+MatDialogModule,
+MatFormFieldModule,
+MatInputModule,
+MatOptionModule,
+MatSelectModule,
+MatCheckboxModule } from '@angular/material';
 
 
 @NgModule({
@@ -19,7 +25,11 @@ imports:[MatButtonModule,
     MatListModule,
     MatGridListModule,
     MatDialogModule,
-    MatFormFieldModule],
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatCheckboxModule],
 exports:[MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
@@ -28,7 +38,11 @@ exports:[MatButtonModule,
     MatListModule,
     MatGridListModule,
     MatDialogModule,
-    MatFormFieldModule]
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatCheckboxModule]
 
 
 })
