@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
 import { CoporateLeader } from '../shared/corporateLeader';
 import { CORPORATELEADERS } from '../shared/corporateLeaders';
+import { resolve } from 'dns';
 
 @Injectable()
 export class LeaderService {
 
   constructor() { }
-  getLeaders():CoporateLeader[]
+  getLeaders():Promise<CoporateLeader[]>
 {
-  return CORPORATELEADERS;
+  return new Promise(resolve=>{
+    //Simulate server latency with 2 second delay
+    setTimeout(()=>resolve(CORPORATELEADERS),2000)
+  });
 }
-getLeaderbyId(id:number):CoporateLeader
+getLeaderbyId(id:number):Promise<CoporateLeader>
 {
-  return CORPORATELEADERS.filter((lead)=>lead.id===id)[0];
+  return new Promise(resolve=>{
+    //Simulate server latency with 2 second delay
+    setTimeout(()=>resolve(CORPORATELEADERS.filter((lead)=>lead.id===id)[0]),2000)
+  });
+
 }
-getFeaturedLeader():CoporateLeader
+getFeaturedLeader():Promise<CoporateLeader>
 {
-  return CORPORATELEADERS.filter(lead=>lead.featured)[0];
-}
-}
+  return new Promise(resolve=>{
+    //Simulate server latency with 2 second delay
+    setTimeout(()=>resolve(CORPORATELEADERS.filter((lead)=>lead.featured)[0]),2000)
+  });
+}}

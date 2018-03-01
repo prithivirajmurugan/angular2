@@ -7,19 +7,28 @@ export class PromotionService {
 
   constructor() { }
 
-  getPromotions():Promotion[]
+  getPromotions():Promise<Promotion[]>
   {
-    return PROMOTIONS;
+    return new Promise(resolve=>{
+      //Simulate server latency with 2 second delay
+      setTimeout(()=>resolve(PROMOTIONS),5000)
+    });
   }
 
-  getPromotion(id:number)
+  getPromotion(id:number):Promise<Promotion>
   {
-    return PROMOTIONS.filter((promo)=>(promo.id===id))[0];
+    return new Promise(resolve=>{
+      //Simulate server latency with 2 second delay
+      setTimeout(()=>resolve(PROMOTIONS.filter((promo)=>(promo.id===id))[0]),5000);
+    });
   }
 
-  getFeaturedPromotion():Promotion
+  getFeaturedPromotion():Promise<Promotion>
   {
-    return PROMOTIONS.filter((promo)=>promo.featured)[0];
+    return new Promise(resolve=>{
+      //Simulate server latency with 2 second delay
+      setTimeout(()=>resolve(PROMOTIONS.filter((promo)=>(promo.featured))[0]),5000);
+    });
   }
 
 }

@@ -63,5 +63,9 @@ fxLayoutGap="10px">
       <p mat-line>{{lead.description}}</p>
      </mat-list-item>
     </mat-list>
+    <div [hidden]="CorporateLeaders">
+      <mat-spinner [color]='warn'></mat-spinner>
+      <h4>Loading....Please Wait...</h4>
+    </div>
   </div>
 </div>
