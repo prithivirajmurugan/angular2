@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CoporateLeader } from '../shared/corporateLeader';
 import { CORPORATELEADERS } from '../shared/corporateLeaders';
+
 import { resolve } from 'dns';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/delay';
