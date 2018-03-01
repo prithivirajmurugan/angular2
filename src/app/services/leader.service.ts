@@ -11,30 +11,30 @@ import { Observable } from 'rxjs/Observable';
 export class LeaderService {
 
   constructor() { }
-  getLeaders():Promise<CoporateLeader[]>
+  getLeaders():Observable<CoporateLeader[]>
 {
 
-  return Observable.of(CORPORATELEADERS).delay(2000).toPromise();
+  return Observable.of(CORPORATELEADERS).delay(2000);
  /* return new Promise(resolve=>{
     //Simulate server latency with 2 second delay
     setTimeout(()=>resolve(CORPORATELEADERS),2000)
   });*/
 }
-getLeaderbyId(id:number):Promise<CoporateLeader>
+getLeaderbyId(id:number):Observable<CoporateLeader>
 {
  /* return new Promise(resolve=>{
     //Simulate server latency with 2 second delay
     setTimeout(()=>resolve(CORPORATELEADERS.filter((lead)=>lead.id===id)[0]),2000)
   });*/
 
-  return Observable.of(CORPORATELEADERS.filter((lead)=>lead.id===id)[0]).delay(2000).toPromise();
+  return Observable.of(CORPORATELEADERS.filter((lead)=>lead.id===id)[0]).delay(2000);
 
 }
-getFeaturedLeader():Promise<CoporateLeader>
+getFeaturedLeader():Observable<CoporateLeader>
 {
   /*return new Promise(resolve=>{
     //Simulate server latency with 2 second delay
     setTimeout(()=>resolve(CORPORATELEADERS.filter((lead)=>lead.featured)[0]),2000)
   });*/
-  return Observable.of(CORPORATELEADERS.filter((lead)=>lead.featured)[0]).delay(2000).toPromise();
+  return Observable.of(CORPORATELEADERS.filter((lead)=>lead.featured)[0]).delay(2000);
 }}
