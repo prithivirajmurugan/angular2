@@ -14,7 +14,9 @@ MatInputModule,
 MatOptionModule,
 MatSelectModule,
 MatCheckboxModule,
-MatSlideToggleModule,MatProgressSpinnerModule } from '@angular/material';
+MatSlideToggleModule,
+MatProgressSpinnerModule,
+MatSliderModule } from '@angular/material';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ imports:[MatButtonModule,
     MatSelectModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule],
+    MatProgressSpinnerModule,
+    MatSliderModule],
 exports:[MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
@@ -47,7 +50,8 @@ exports:[MatButtonModule,
     MatSelectModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule]
+    MatProgressSpinnerModule,
+    MatSliderModule]
 
 
 })

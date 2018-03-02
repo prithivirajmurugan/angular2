@@ -59,7 +59,7 @@ export class ContactComponent implements OnInit {
         const messages=this.validateMessages[field];
         for (const key in control.errors)
         {
-          this.formErrors[field]+=messages[key] + '';
+          this.formErrors[field]+=messages[key] + ''
         }
       }
     }
