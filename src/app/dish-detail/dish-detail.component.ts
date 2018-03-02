@@ -86,7 +86,7 @@ onValueChanged(data?:any)
      ({
        name:['',[Validators.required,Validators.minLength(2),Validators.maxLength(25)]],
        comments:['',[Validators.required]],
-       rating:[3,Validators.required]
+       rating:['',Validators.required]
 
      });
      this.commentsForm.valueChanges.subscribe(data=>this.onValueChanged(data));
@@ -100,6 +100,11 @@ onValueChanged(data?:any)
     this.commentiter.comment=this.commentsForm.get('comments').value;
     this.commentiter.rating=+this.commentsForm.get('rating').value;
     this.dish.comments.push(this.commentiter);
+    this.commentsForm.reset({
+      name:'',
+      comments:'',
+      rating:''
+    });
      /*this.comment.author=this.commentsForm.get('name').value;
 
     this.comment.comment=this.commentsForm.get('comments').value;
