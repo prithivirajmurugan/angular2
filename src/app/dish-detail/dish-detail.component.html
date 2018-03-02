@@ -41,50 +41,55 @@ fxLayoutGap.xs="0">
     <h4 mat-line>-- {{comment.author}} , {{comment.date | date:'mediumDate'}}</h4>
   </mat-list-item>
 </mat-list>
-</div>
 <div>
-  <h3>Send us your comment for the dish</h3>
-  <form novalidate [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
-    <p>
-      <mat-form-field 
-      dividerColor="{{formErrors.name ? 'warn':'primary'}}">
-      <input matInput formControlName="name" placeholder="Your Name" 
-      type="text" required>
-      <mat-hint>
-        <span [hidden]="!(formErrors.name)">
-          {{formErrors.name}}
-        </span>
-      </mat-hint>
-    </mat-form-field>
-    </p>
-    <h3>Enter your Ratings!!!</h3>
-    <mat-slider
-    [max]="5"
-    [min]="0"
-    [step]="1"
-    [thumb-label]="true"
-    formControlName="rating"
-    >
-</mat-slider>
-    <p>
-      <mat-form-field 
-      dividerColor="{{formErrors.comments ? 'warn' : 'primary'}}">
-      <textarea matInput formControlName="comments" placeholder="Enter your Comments"
-       matTextareaAutosize
-       matAutosizeMinRows="2"
-       matAutosizeMaxRows="50"></textarea>
-       <mat-hint>
-        <span [hidden]="!(formErrors.comments)">
-          {{formErrors.comments}}
-        </span>
-      </mat-hint>
-    </mat-form-field>
-    </p>
-    <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentsForm.invalid">Submit</button>
-  </form>
-</div>
-<div [hidden]="!(commentsForm.valid)">
-  <h3>Preview of your comment</h3>
+    <h3>Send us your comment for the dish</h3>
+    <form novalidate [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field 
+        dividerColor="{{formErrors.name ? 'warn':'primary'}}">
+        <input matInput formControlName="name" placeholder="Your Name" 
+        type="text" required>
+        <mat-hint>
+          <span [hidden]="!(formErrors.name)">
+            {{formErrors.name}}
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      </p>
+      <h3>Enter your Ratings!!!</h3>
+      <mat-slider
+      [max]="5"
+      [min]="0"
+      [step]="1"
+      [thumb-label]="true"
+      formControlName="rating"
+      >
+  </mat-slider>
+      <p>
+        <mat-form-field 
+        dividerColor="{{formErrors.comments ? 'warn' : 'primary'}}">
+        <textarea matInput formControlName="comments" placeholder="Enter your Comments"
+         matTextareaAutosize
+         matAutosizeMinRows="2"
+         matAutosizeMaxRows="50"></textarea>
+         <mat-hint>
+          <span [hidden]="!(formErrors.comments)">
+            {{formErrors.comments}}
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      </p>
+      <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentsForm.invalid">Submit</button>
+    </form>
+    <div [hidden]="!(commentsForm.valid)">
+        <mat-list>
+        <h3 mat-header>Preview of your comment</h3>
+        <mat-list-item>{{commentsForm.get('name').value}}</mat-list-item>
+        <mat-list-item>{{commentsForm.get('rating').value}} Stars</mat-list-item>
+        <mat-list-item>{{commentsForm.get('comments').value}}</mat-list-item>
+      </mat-list>
+      </div>
+  </div>
 </div>
 
 <div [hidden]="dish">
