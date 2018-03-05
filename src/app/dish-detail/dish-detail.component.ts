@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {Dish} from '../shared/dish';
 import {DishService} from '../services/dish.service';
 
@@ -7,6 +7,7 @@ import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Comment } from '../shared/comment';
+
 
 
 @Component({
@@ -76,7 +77,8 @@ onValueChanged(data?:any)
   constructor(private dishservice:DishService,
               private activatedroute:ActivatedRoute,
               private location:Location,
-              private fb:FormBuilder )
+              private fb:FormBuilder,
+              @Inject('BaseURL') private BaseURL )
    {this.createForm();}   
 
   

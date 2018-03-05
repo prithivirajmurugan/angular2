@@ -22,7 +22,8 @@ import 'hammerjs';
 import {DishService} from './services/dish.service';
 import {PromotionService} from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
-
+import { baseURL } from './shared/baseurl';
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,11 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule
     ],
     entryComponents:[LoginComponent],
-  providers: [DishService,PromotionService,LeaderService],
+  providers: [DishService,
+              PromotionService,
+              LeaderService,
+              ProcessHttpmsgService,
+            {provide:'BaseURL',useValue:baseURL}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
