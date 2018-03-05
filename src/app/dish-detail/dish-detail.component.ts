@@ -6,7 +6,7 @@ import {Params,ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
-import { state,trigger,style,transition,animate } from '@angular/animations';
+import { visibility  } from '../animations/app.animations';
 import { Comment } from '../shared/comment';
 
 
@@ -15,15 +15,7 @@ import { Comment } from '../shared/comment';
   selector: 'app-dish-detail',
   templateUrl: './dish-detail.component.html',
   styleUrls: ['./dish-detail.component.scss'],
-  animations:
-            [ trigger('visibility',[state('shown',
-                                          style({transform:'scale(1.0)',
-                                                  opacity:1 })),
-                                    state('hidden',style({transform:'scale(0.5)',
-                                                          opacity:0})),
-                                    transition('*=>*',animate('0.5s ease-in-out'))
-                                                ])
-            ]
+  animations:[visibility()   ]
           })
 export class DishDetailComponent implements OnInit 
 {
