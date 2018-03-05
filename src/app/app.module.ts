@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LeaderService } from './services/leader.service';
+import { RestangularModule,Restangular} from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 import 'hammerjs';
 
@@ -45,7 +47,8 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
     ],
     entryComponents:[LoginComponent],
   providers: [DishService,
