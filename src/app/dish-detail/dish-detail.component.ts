@@ -21,6 +21,7 @@ dish:Dish;
 dishIds:number[];
 prev:number;
 next:number;
+errMsg:string;
 
 commentsForm:FormGroup;
 commentiter:Comment={
@@ -120,7 +121,8 @@ onValueChanged(data?:any)
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.activatedroute.params
       .switchMap((params: Params) => this.dishservice.getDish(+params['id']))
-      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); },
+                 errMsg=>{this.errMsg=<any>errMsg} );
   }
   setPrevNext(dishId: number) {
     let index = this.dishIds.indexOf(dishId);
