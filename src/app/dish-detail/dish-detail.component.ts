@@ -6,6 +6,7 @@ import {Params,ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { state,trigger,style,transition,animate } from '@angular/animations';
 import { Comment } from '../shared/comment';
 
 
@@ -13,8 +14,17 @@ import { Comment } from '../shared/comment';
 @Component({
   selector: 'app-dish-detail',
   templateUrl: './dish-detail.component.html',
-  styleUrls: ['./dish-detail.component.scss']
-})
+  styleUrls: ['./dish-detail.component.scss'],
+  animations:
+            [ trigger('visibility',[state('shown',
+                                          style({transform:'scale(1.0)',
+                                                  opacity:1 })),
+                                    state('hidden',style({transform:'scale(0.5)',
+                                                          opacity:0})),
+                                    transition('*=>*',animate('0.5s ease-in-out'))
+                                                ])
+            ]
+          })
 export class DishDetailComponent implements OnInit 
 {
 dish:Dish;
@@ -23,6 +33,7 @@ dishIds:number[];
 prev:number;
 next:number;
 errMsg:string;
+visibility='shown';
 
 commentsForm:FormGroup;
 commentiter:Comment={
@@ -123,8 +134,8 @@ onValueChanged(data?:any)
     //let id=+this.activatedroute.snapshot.params['id'];
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.activatedroute.params
-      .switchMap((params: Params) => this.dishservice.getDish(+params['id']))
-      .subscribe(dish => { this.dish = dish;this.dishcopy=dish; this.setPrevNext(dish.id); },
+      .switchMap((params: Params) => {this.visibility='hidden';return this.dishservice.getDish(+params['id']);})
+      .subscribe(dish => { this.dish = dish;this.dishcopy=dish; this.setPrevNext(dish.id);this.visibility='shown'; },
                  errMsg=>{this.dish=null;this.errMsg=<any>errMsg} );
   }
   setPrevNext(dishId: number) {
