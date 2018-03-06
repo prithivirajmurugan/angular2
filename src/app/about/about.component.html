@@ -55,7 +55,7 @@ fxLayoutGap="10px">
 
 
    <div fxFlex>
-     <mat-list *ngIf="CorporateLeaders">
+     <mat-list *ngIf="CorporateLeaders" [@expand]>
      <h2 mat-header>Corporate Leadership</h2>
      <mat-list-item *ngFor="let lead of CorporateLeaders">
       <h3 mat-line>{{lead.name}} , {{lead.abbr}}</h3>
