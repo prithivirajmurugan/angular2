@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import {ContactType,Feedback} from '../shared/feedback';
 import { flyInOut } from '../animations/app.animations';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'app-contact',
@@ -70,12 +71,14 @@ export class ContactComponent implements OnInit {
       }
     }
  }
-  constructor( private fb:FormBuilder) { 
+  constructor( private fb:FormBuilder,
+                private feedbackser:FeedbackService) { 
     this.createForm();
   }
   feedbackForm:FormGroup;
   feedback:Feedback;
   contactType=ContactType;
+  submittedFeedback:Feedback=null;
 
 
   ngOnInit() {
@@ -111,6 +114,9 @@ export class ContactComponent implements OnInit {
       contacttype:'None',
       message:''
     });
+
+    this.feedbackser.postfeedBack(this.feedback).subscribe(a=>{this.submittedFeedback=a,console.log(this.submittedFeedback);});
+    setTimeout(()=>this.submittedFeedback=null,5000);
   }
 
 }
