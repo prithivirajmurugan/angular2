@@ -38,7 +38,8 @@ fxLayoutGap="10px">
 
  <div fxFlex fxFlexOffset="20px" class="form-size">
   <h3>Send us your Feedback</h3>
-  <form novalidate *ngIf="!submittedFeedback" [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+  <form novalidate *ngIf="!submittedFeedback" 
+  [@expand] [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width"
          dividerColor="{{formErrors.firstname ? 'warn' : 'primary'}}">
@@ -95,4 +96,10 @@ fxLayoutGap="10px">
       <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
     </form>
    </div>
+   <div *ngIf="submittedFeedback">
+     <h1>Preview</h1>
+     <h3>{{submittedFeedback.firstname}} , {{submittedFeedback.lastname}}</h3>
+     <h2>Your Feedback</h2>
+     <h4>{{submittedFeedback.message}}</h4>
+       </div>
 </div>
